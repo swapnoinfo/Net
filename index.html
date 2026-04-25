@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Swapno | Premium Services Saudi Arabia</title>
+  <!-- Font Awesome 6 (Free Icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* CSS Variables for Light Mode (default) */
+    :root {
+      --bg-body: #f9fafc;
+      --bg-surface: #ffffff;
+      --surface-soft: #f1f5f9;
+      --text-primary: #0f172a;
+      --text-secondary: #334155;
+      --text-muted: #5b6e8c;
+      --accent: #d97706;
+      --accent-dark: #b45309;
+      --accent-light: #fef3c7;
+      --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+      --border-light: #e2e8f0;
+      --header-bg: rgba(255, 255, 255, 0.85);
+      --header-border: rgba(0, 0, 0, 0.05);
+      --icon-bg: #eef2ff;
+    }
+
+    body.dark {
+      --bg-body: #0a0c10;
+      --bg-surface: #1e1f2a;
+      --surface-soft: #2a2d3a;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --accent: #f59e0b;
+      --accent-dark: #fbbf24;
+      --accent-light: #2d2a1e;
+      --border-light: #2d313e;
+      --header-bg: rgba(20, 22, 32, 0.85);
+      --header-border: rgba(255, 255, 255, 0.05);
+      --icon-bg: #2d2f42;
+    }
+
+    body {
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* Inter font fallback */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+    /* RTL Support */
+    body[dir="rtl"] {
+      text-align: right;
+      font-family: 'Inter', 'Segoe UI', 'Tahoma', system-ui, sans-serif;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* Sticky Header */
+    .sticky-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
+      background: var(--header-bg);
+      border-bottom: 1px solid var(--header-border);
+      padding: 0.9rem 0;
+    }
+
+    .header-flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--accent), #fbbf24);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.5px;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .lang-toggle, .theme-toggle {
+      background: var(--surface-soft);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+    }
+
+    .lang-toggle i, .theme-toggle i {
+      font-size: 1rem;
+    }
+
+    .lang-toggle:hover, .theme-toggle:hover {
+      background: var(--accent);
+      color: white;
+      transform: scale(0.97);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 4rem 0 3rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, var(--accent), #facc15);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      color: var(--text-secondary);
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 8px 18px rgba(217, 119, 6, 0.25);
+    }
+
+    .cta-button:hover {
+      background: var(--accent-dark);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(217, 119, 6, 0.35);
+    }
+
+    /* Services Section */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.8rem 0;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .service-card {
+      background: var(--bg-surface);
+      border-radius: 28px;
+      padding: 1.8rem 1.2rem;
+      box-shadow: var(--card-shadow);
+      border: 1px solid var(--border-light);
+      transition: all 0.25s ease;
+      text-align: center;
+      backdrop-filter: blur(2px);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      color: var(--accent);
+      background: var(--icon-bg);
+      width: 70px;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 35px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Contact / Footer Section */
+    .contact-footer {
+      background: var(--surface-soft);
+      border-radius: 40px 40px 0 0;
+      margin-top: 3rem;
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .contact-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .contact-info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .contact-info h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .contact-detail i {
+      font-size: 1.4rem;
+      width: 2rem;
+      color: var(--accent);
+    }
+
+    .contact-detail a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.2s;
+      word-break: break-all;
+    }
+
+    .contact-detail a:hover {
+      color: var(--accent);
+    }
+
+    .shop-info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .shop-info p {
+      margin: 0.6rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* responsive */
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+      .contact-grid {
+        flex-direction: column;
+        gap: 1.8rem;
+      }
+      .sticky-header .header-flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .service-card h3 {
+        font-size: 1.3rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+
+    /* RTL adjustments */
+    body[dir="rtl"] .contact-detail {
+      flex-direction: row-reverse;
+    }
+
+    body[dir="rtl"] .header-actions {
+      flex-direction: row-reverse;
+    }
+
+    body[dir="rtl"] .service-icon {
+      margin: 0 auto 1.2rem auto;
+    }
+
+    button {
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+<body dir="ltr">
+  <header class="sticky-header">
+    <div class="container header-flex">
+      <div class="logo">
+        <i class="fas fa-tools" style="color: var(--accent); margin-right: 6px;"></i> Swapno
+      </div>
+      <div class="header-actions">
+        <button class="lang-toggle" id="langSwitcherBtn" aria-label="Toggle Language">
+          <i class="fas fa-globe"></i> <span id="langBtnText">العربية</span>
+        </button>
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Dark/Light mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <h1 data-i18n="hero_title">Swapno – Your Trusted Service Partner in Saudi Arabia</h1>
+        <p data-i18n="hero_desc">Expert solutions for electrical, plumbing, AC, painting, gypsum, and more. Professional, reliable, and affordable.</p>
+        <button class="cta-button" id="heroCtaBtn">
+          <i class="fas fa-headset"></i> <span data-i18n="cta_text">Request a Service</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <div class="container">
+      <h2 class="section-title" data-i18n="services_title">Our Premium Services</h2>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+
+    <!-- Contact & Footer Area -->
+    <footer class="contact-footer">
+      <div class="container">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <h3 data-i18n="contact_heading">Get in Touch</h3>
+            <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+9660578458893" id="phoneLink">+966 057 845 8893</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:mmansura956@gmail.com" id="emailLink">mmansura956@gmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-whatsapp"></i>
+              <a href="https://wa.me/9660578458893" target="_blank" id="whatsappLink">WhatsApp: +966 057 845 8893</a>
+            </div>
+          </div>
+          <div class="shop-info">
+            <p><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> <span data-i18n="address_text">Jedda, Saudi Arabia</span></p>
+            <p><i class="fas fa-clock"></i> <span data-i18n="hours_text">Sat-Thu: 8:00 AM – 10:00 PM</span></p>
+            <p><i class="fas fa-certificate"></i> <span data-i18n="trust_text">Licensed & Insured Professionals</span></p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p data-i18n="copyright">© 2026 Swapno — Premium Home & Office Services. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // ---------- MULTILINGUAL DATA (EN / AR) ----------
+    const translations = {
+      en: {
+        hero_title: "Swapno – Your Trusted Service Partner in Saudi Arabia",
+        hero_desc: "Expert solutions for electrical, plumbing, AC, painting, gypsum, and more. Professional, reliable, and affordable.",
+        cta_text: "Request a Service",
+        services_title: "Our Premium Services",
+        contact_heading: "Get in Touch",
+        address_text: "Al Khumra Garania, Jeddah, Saudi Arabia",
+        hours_text: "Sat-Thu: 8:00 AM – 10:00 PM",
+        trust_text: "Licensed & Insured Professionals",
+        copyright: "© 2026 Swapno — Premium Home & Office Services. All rights reserved.",
+        // service cards
+        svc1_title: "Electrical Wiring",
+        svc1_desc: "Safe, code-compliant wiring, panel upgrades, and full electrical solutions.",
+        svc2_title: "Pipe & Filter Fitting",
+        svc2_desc: "Leak repairs, pipe installations, water filter systems & plumbing maintenance.",
+        svc3_title: "AC, Fridge, WM, CCTV & Solar",
+        svc3_desc: "Installation & repair: AC, refrigerators, washing machines, CCTV cameras & solar panels.",
+        svc4_title: "Home & Office Wall Painting",
+        svc4_desc: "Interior/exterior painting with premium finishes, color consultation.",
+        svc5_title: "Gypsum & Ceiling Board Work",
+        svc5_desc: "False ceiling, gypsum partitions, decorative moldings and repairs."
+      },
+      ar: {
+        hero_title: "سوابنو – شريكك الموثوق في الخدمات المنزلية وال office في المملكة",
+        hero_desc: "حلول متخصصة في الكهرباء، السباكة، التكييف، الدهان، الجبس والمزيد. احترافية وموثوقة بأسعار مناسبة.",
+        cta_text: "اطلب الخدمة الآن",
+        services_title: "خدماتنا المميزة",
+        contact_heading: "تواصل معنا",
+        address_text: "الخمرة جارانية، جدة، المملكة العربية السعودية",
+        hours_text: "السبت – الخميس: 8 صباحاً – 10 مساءً",
+        trust_text: "فنيون مرخصون ومؤمن عليهم",
+        copyright: "© 2026 سوابنو — خدمات منزلية ومكتبية فاخرة. جميع الحقوق محفوظة.",
+        svc1_title: "تمديدات كهربائية",
+        svc1_desc: "أسلاك آمنة، لوحات كهربائية، وتركيبات مطابقة للمعايير.",
+        svc2_title: "تركيب الأنابيب والفلتر",
+        svc2_desc: "إصلاح التسريبات، تركيب مواسير، أنظمة فلاتر المياه والصيانة.",
+        svc3_title: "تكييف، ثلاجات، غسالات، كاميرات والطاقة الشمسية",
+        svc3_desc: "تركيب وصيانة: مكيفات، ثلاجات، غسالات، كاميرات مراقبة وألواح شمسية.",
+        svc4_title: "دهان المنازل والمكاتب",
+        svc4_desc: "دهان داخلي وخارجي بلمسات نهائية فاخرة واستشارات ألوان.",
+        svc5_title: "أعمال الجبس والأسقف الجبسية",
+        svc5_desc: "أسقف معلقة، حوائط جبسية، زخارف وتشطيبات متقنة."
+      }
+    };
+
+    // Services base data (icons & keys)
+    const servicesData = [
+      { icon: "fas fa-bolt", titleKey: "svc1_title", descKey: "svc1_desc" },
+      { icon: "fas fa-water", titleKey: "svc2_title", descKey: "svc2_desc" },
+      { icon: "fas fa-solar-panel", titleKey: "svc3_title", descKey: "svc3_desc" },
+      { icon: "fas fa-paintbrush", titleKey: "svc4_title", descKey: "svc4_desc" },
+      { icon: "fas fa-chalkboard", titleKey: "svc5_title", descKey: "svc5_desc" }
+    ];
+
+    let currentLang = 'en';     // 'en' or 'ar'
+    let currentTheme = 'light'; // 'light' or 'dark'
+
+    // DOM elements
+    const langBtnSpan = document.getElementById('langBtnText');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const servicesContainer = document.getElementById('servicesGrid');
+    const ctaButtonSpan = document.querySelector('#heroCtaBtn span');
+    const heroCtaBtn = document.getElementById('heroCtaBtn');
+
+    // Helper: render service cards dynamically (to support language change)
+    function renderServicesCards() {
+      if (!servicesContainer) return;
+      servicesContainer.innerHTML = '';
+      servicesData.forEach(service => {
+        const card = document.createElement('div');
+        card.className = 'service-card';
+        const iconHtml = `<div class="service-icon"><i class="${service.icon}"></i></div>`;
+        const titleText = translations[currentLang][service.titleKey] || service.titleKey;
+        const descText = translations[currentLang][service.descKey] || service.descKey;
+        card.innerHTML = `
+          ${iconHtml}
+          <h3>${titleText}</h3>
+          <p>${descText}</p>
+        `;
+        servicesContainer.appendChild(card);
+      });
+    }
+
+    // Update all text elements that have data-i18n attribute
+    function updateTextContent() {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+            el.placeholder = translations[currentLang][key];
+          } else {
+            el.innerText = translations[currentLang][key];
+          }
+        }
+      });
+      // Also update the hero button span inside cta (special handling)
+      if (ctaButtonSpan && translations[currentLang].cta_text) {
+        ctaButtonSpan.innerText = translations[currentLang].cta_text;
+      }
+      // Update any additional specific contact fields if needed (they are static except labels inside data-i18n)
+      // but the service cards need re-render to apply new language titles & desc
+      renderServicesCards();
+      // update phone/whatsApp visible text? But numbers are same, no change needed; but optional keep consistent
+    }
+
+    // Apply Direction & RTL styling based on language
+    function setLanguageDirection() {
+      const htmlElement = document.documentElement;
+      const body = document.body;
+      if (currentLang === 'ar') {
+        body.setAttribute('dir', 'rtl');
+        body.style.textAlign = 'right';
+        // update language toggle button text: show "English" when in Arabic mode
+        if (langBtnSpan) langBtnSpan.innerText = 'English';
+      } else {
+        body.setAttribute('dir', 'ltr');
+        body.style.textAlign = 'left';
+        if (langBtnSpan) langBtnSpan.innerText = 'العربية';
+      }
+      updateTextContent();
+    }
+
+    // Language switcher
+    function toggleLanguage() {
+      currentLang = currentLang === 'en' ? 'ar' : 'en';
+      setLanguageDirection();
+    }
+
+    // ---------- DARK / LIGHT MODE ----------
+    function setTheme(theme) {
+      currentTheme = theme;
+      if (theme === 'dark') {
+        document.body.classList.add('dark');
+        const iconMoon = themeToggleBtn.querySelector('i');
+        if (iconMoon) {
+          iconMoon.classList.remove('fa-moon');
+          iconMoon.classList.add('fa-sun');
+        }
+      } else {
+        document.body.classList.remove('dark');
+        const iconSun = themeToggleBtn.querySelector('i');
+        if (iconSun) {
+          iconSun.classList.remove('fa-sun');
+          iconSun.classList.add('fa-moon');
+        }
+      }
+      localStorage.setItem('swapno_theme', theme);
+    }
+
+    function toggleTheme() {
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      setTheme(newTheme);
+    }
+
+    // Load saved theme from localStorage
+    function loadThemePreference() {
+      const savedTheme = localStorage.getItem('swapno_theme');
+      if (savedTheme === 'dark') {
+        setTheme('dark');
+      } else {
+        setTheme('light');
+      }
+    }
+
+    // Load language preference (optional)
+    function loadLanguagePreference() {
+      const savedLang = localStorage.getItem('swapno_lang');
+      if (savedLang === 'ar') {
+        currentLang = 'ar';
+      } else {
+        currentLang = 'en';
+      }
+      setLanguageDirection();
+    }
+
+    function saveLanguagePreference() {
+      localStorage.setItem('swapno_lang', currentLang);
+    }
+
+    // CTA Button action: smooth scroll to contact/footer section
+    function setupCTAScroll() {
+      if (heroCtaBtn) {
+        heroCtaBtn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const footer = document.querySelector('.contact-footer');
+          if (footer) {
+            footer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      }
+    }
+
+    // Make sure external links for phone, mail, whatsapp are properly set
+    function validateContactLinks() {
+      // Phone, mail, whatsapp already exist; but ensure extra click robustness
+      const phoneLink = document.getElementById('phoneLink');
+      if (phoneLink) phoneLink.setAttribute('href', 'tel:+9660578458893');
+      const emailLink = document.getElementById('emailLink');
+      if (emailLink) emailLink.setAttribute('href', 'mailto:mmansura956@gmail.com');
+      const waLink = document.getElementById('whatsappLink');
+      if (waLink) waLink.setAttribute('href', 'https://wa.me/9660578458893');
+      waLink?.setAttribute('target', '_blank');
+    }
+
+    // Helper to synchronize service detail links using correct icons triggers already
+    // Also provide any additional contact – all meet requirements
+
+    // --- initial rendering & event binding ---
+    function init() {
+      loadThemePreference();
+      loadLanguagePreference();
+      renderServicesCards();
+      validateContactLinks();
+      setupCTAScroll();
+
+      // event listeners for toggles
+      const langBtn = document.getElementById('langSwitcherBtn');
+      if (langBtn) {
+        langBtn.addEventListener('click', () => {
+          toggleLanguage();
+          saveLanguagePreference();
+        });
+      }
+
+      if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', toggleTheme);
+      }
+      
+      // additional: ensure any data-i18n elements also update on language toggle if missing
+      // Re-run extra update because language load triggers setLanguageDirection -> updateTextContent already calls renderServicesCards.
+    }
+
+    init();
+  </script>
+</body>
+</html>
